@@ -1,4 +1,4 @@
-body {
+/*body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
@@ -36,8 +36,6 @@ header {
     width: 100%;
     padding-top: 10px;
     padding-bottom: 10px;
-    /*padding-left: 10px;
-    padding-right:15px;*/
     border: 1px solid #ccc;
     border-radius: 4px;
     
@@ -103,4 +101,4 @@ header {
     padding: 0;
     overflow: hidden;
     border: 0;
-}
+}*/
