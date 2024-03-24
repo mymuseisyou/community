@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+    <head>
+        <title>3-5 | {{post.postname}}</title>
+        <link rel="stylesheet" href={% static 'css/posting.css' %}>
+    </head>
+    <body>
+        <header>
+            <div class="headerr">
+                <h2>3-5 Class</h2>
+                {% if user.is_authenticated %}
+                <h4>{{ user.username }} 님  |  <a href="{% url 'users:logout' %}">로그아웃</a></h4>
+                {% else %}
+                <h4><a href="/users/login/">로그인</a></h4>
+                {% endif %}
+            </div>
+        </header>
+        <div class="container">
+        <h1>{{post.postname}}</h1>
+        <p><b>{{post.username}}</b> · {{post.pk}}번째 글</p>
+        <br><hr><br>
+        <p>{{post.contents|linebreaksbr}}</p>
+        {% if post.mainphoto %}
+            <img src = "{{ post.mainphoto.url }}/" alt="" width="750px;">
+            <br>
+        {% endif %}
+        <br><br><hr><br><br>
+        <a href="/community/" type="submit"><button class="btn-submit">글목록</button></a>
+        </div>
+    </body>
+</html>
