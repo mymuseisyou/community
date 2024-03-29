@@ -32,6 +32,7 @@ header {
     margin-bottom: 5px;
 }
 .form-group input[type="text"],
+.form-group input[type="password"],
 .form-group textarea {
     width: 100%;
     padding-top: 10px;
