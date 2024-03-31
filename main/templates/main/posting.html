@@ -22,7 +22,7 @@
         <p><b>{{post.username}}</b> · {{post.pk}}번째 글</p>
         <br><hr><br>
         {% if post.mainphoto %}
-            <img src = "{{ post.mainphoto.url }}/" alt="" width="750px;">
+            <img src = "{{ post.mainphoto.url }}/" alt="" width="90%;" max-width="900px;">
             <br>
         {% endif %}
         <p>{{post.contents|linebreaksbr}}</p>
