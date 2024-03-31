@@ -18,7 +18,7 @@
         </div>
     </header>
     <div class="container">
-        {% if user.is_authenticated %} 
+         
         <h2>게시글 작성</h2>
         <br><hr><br><br>
         <form method="POST" enctype="multipart/form-data">
@@ -40,11 +40,12 @@
             </div>
             
             <input type="file" accept=".gif, .jpg, .png" name="mainphoto"><br><br><br><br>
+            {% if user.is_authenticated %}
             <input type="submit" value="글쓰기" class="btn-submit">
+            {% else %}
+            <button onclick="alert('로그인 후 이용 가능합니다.')" class="btn-submit">글쓰기</button>
+            {% endif %}
         </form>
-        {% else %}
-        <h1>나가</h1>
-        {% endif %}
     </div>
     <script>
         function resize(obj) {
