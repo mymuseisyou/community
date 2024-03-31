@@ -42,10 +42,11 @@
             <input type="file" accept=".gif, .jpg, .png" name="mainphoto"><br><br><br><br>
             {% if user.is_authenticated %}
             <input type="submit" value="글쓰기" class="btn-submit">
+            </form>
             {% else %}
+            </form>
             <button onclick="alert('로그인 후 이용 가능합니다.')" class="btn-submit">글쓰기</button>
             {% endif %}
-        </form>
     </div>
     <script>
         function resize(obj) {
