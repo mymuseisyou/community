@@ -21,4 +21,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('main.urls')), #main>urls.py에서 관리
     path('users/', include('users.urls')), #users>urls.py에서 관리
+    path("ckeditor5/", include("django_ckeditor_5.urls")), #ckeditor
 ]

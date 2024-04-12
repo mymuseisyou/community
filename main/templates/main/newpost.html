@@ -9,7 +9,7 @@
 <body>
     <header>
         <div class="headerr">
-            <h2><a href="/community/">3-5 Class</a></h2>
+            <h2><a href="/community/">3-5반</a></h2>
             {% if user.is_authenticated %}
             <h4>{{ user.username }} 님  |  <a href="{% url 'users:logout' %}">로그아웃</a></h4>
             {% else %}
@@ -21,7 +21,18 @@
          
         <h2>게시글 작성</h2>
         <br><hr><br><br>
-        <form method="POST" enctype="multipart/form-data">
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.media }}
+            {{ form.as_p }}
+            {% if user.is_authenticated %}
+            <input type="submit" value="글쓰기" class="btn-submit">
+            </form>
+            {% else %}
+            </form>
+            <button onclick="alert('로그인 후 이용 가능합니다.')" class="btn-submit">글쓰기</button>
+            {% endif %}
+        <!--<form method="POST" enctype="multipart/form-data">
             {% csrf_token %}
             <div class="form-group">
                 <label for="postname">제목</label><br>
@@ -39,20 +50,13 @@
                 <label for="mainphoto">이미지 업로드</label>
             </div>
             
-            <input type="file" accept=".gif, .jpg, .png" name="mainphoto"><br><br><br><br>
-            {% if user.is_authenticated %}
-            <input type="submit" value="글쓰기" class="btn-submit">
-            </form>
-            {% else %}
-            </form>
-            <button onclick="alert('로그인 후 이용 가능합니다.')" class="btn-submit">글쓰기</button>
-            {% endif %}
+            <input type="file" accept=".gif, .jpg, .png" name="mainphoto"><br><br><br><br>-->
     </div>
-    <script>
+    <!--<script>
         function resize(obj) {
             obj.style.height = '1px';
             obj.style.height = (12 + obj.scrollHeight) + 'px';
         }
-    </script>
+    </script>-->
 </body>
 </html>

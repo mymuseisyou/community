@@ -10,7 +10,8 @@ urlpatterns=[
     path('',community),
     path('community/',community),
     path('community/<int:pk>/', posting, name="posting"),
-    path('community/newpost/', newpost),
+    #path('community/newpost/', newpost),
+    path('community/newpost/', PostCreateView.as_view(), name='post_create'),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

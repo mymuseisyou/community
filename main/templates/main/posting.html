@@ -9,7 +9,7 @@
     <body>
         <header>
             <div class="headerr">
-                <h2><a href="/community/">3-5 Class</a></h2>
+                <h2><a href="/community/">3-5반</a></h2>
                 {% if user.is_authenticated %}
                 <h4>{{ user.username }} 님  |  <a href="{% url 'users:logout' %}">로그아웃</a></h4>
                 {% else %}
@@ -18,15 +18,13 @@
             </div>
         </header>
         <div class="container">
-        <h1>{{post.postname}}</h1>
-        <p><b>{{post.username}}</b> · {{post.pk}}번째 글</p>
-        <br><hr><br>
-        {% if post.mainphoto %}
-            <img src = "{{ post.mainphoto.url }}/" alt="" width="100%;" max-width="900px;">
-            <br>
-        {% endif %}
-        <p>{{post.contents|linebreaksbr}}</p>
-        <br>
+            <div class="ck-content">
+                <h1>{{post.postname}}</h1>
+                <p><b>{{post.username}}</b> · {{post.pk}}번째 글</p>
+                <br><hr><br>
+                <p>{{post.contents|safe}}</p>
+                <br>
+            </div>
         </div>
         <div class="container">
             <h2>게시판</h2>

@@ -1,6 +1,8 @@
 from django.shortcuts import redirect, render
+from django.views.generic.edit import CreateView
 # View에 Model(Post) 가져오는거
 from .models import Post
+from .forms import PostForm
 
 #index.html 불러오기
 def index(request):
@@ -41,3 +43,8 @@ def newpost(request):
             )
         return redirect('/community/')
     return render(request, 'main/newpost.html')
+
+class PostCreateView(CreateView):
+    template_name = 'main/newpost.html'
+    success_url = '/community/'
+    form_class = PostForm
