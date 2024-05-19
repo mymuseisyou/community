@@ -46,7 +46,6 @@ INSTALLED_APPS = [
     'users',
     'django_ckeditor_5',
     'ckeditor_uploader',
-    'classifier',
     'tenserfloww',
 ]
 
