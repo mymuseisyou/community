@@ -1,0 +1,46 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href={% static 'community.css' %}>
+  <title>폐렴 예측 모델</title>
+</head>
+<body>
+  <header>
+      <div class="headerr">
+      <h2><a href="/community/">3-5반</a></h2>
+      {% if user.is_authenticated %}
+      <h4>{{ user.username }} 님  |  <a href="{% url 'users:logout' %}">로그아웃</a></h4>
+      {% else %}
+      <h4><a href="/users/login/">로그인</a></h4>
+      {% endif %}
+      </div>
+  </header>
+  <br>
+  <br>
+  <div class="container">
+    <h1>폐렴 예측 모델</h1>
+    <br>
+    <form method="POST" enctype="multipart/form-data">
+      {% csrf_token %}
+      <input type="file" name="image" accept="image/*" required />
+      <button type="submit" class="btn-submit">결과 확인</button>
+    </form>
+    <br>
+    <div>
+      {% if image_url and prediction == 'negative' %}
+      <img src="{{ image_url }}" alt="Uploaded Image" width="400px" />
+      <p>결과: 정상</p>
+      {% elif image_url and prediction == 'positive' %}
+      <img src="{{ image_url }}" alt="Uploaded Image" width="400px" />
+      <p>결과: 폐렴</p>
+      {% else %}
+      <p>{{ message }}</p>
+      {% endif %}
+    </div>
+  </div>
+</body>
+</html>
+

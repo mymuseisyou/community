@@ -27,8 +27,9 @@ SECRET_KEY = 'django-insecure-&8(!$6tu4_m)hf&@f2l6srp3iw97#+1+$gzkp%@cda65q+ij^#
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    ".ap-northeast-2.compute.amazonaws.com",
-    ".snghproject.com",
+    "*",
+    # ".ap-northeast-2.compute.amazonaws.com",
+    # ".snghproject.com",
 ]
 
 
@@ -45,6 +46,8 @@ INSTALLED_APPS = [
     'users',
     'django_ckeditor_5',
     'ckeditor_uploader',
+    'classifier',
+    'tenserfloww',
 ]
 
 MIDDLEWARE = [
@@ -62,7 +65,7 @@ ROOT_URLCONF = 'community.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, "templates")],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
